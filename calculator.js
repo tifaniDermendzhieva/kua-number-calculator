@@ -18,9 +18,19 @@ export function calculateKuaNumber(birthdate, gender) {
 
 
     switch (gender) {
-        case 'famale': break;
+        case 'female':
+            kua = kua + 4;          // largest possible kua at this stage 9 + 4 =13 => two digits max
+            if (kua > 9) {
+                let temp = kua.toString().split('').map(d => Number(d));
+                kua = temp[0] + temp[1];
+            }
+            if (kua === 5) {
+                kua = 8;
+            }
+            break;
 
-        case 'male': kua = 11 - kua;
+        case 'male':
+            kua = 11 - kua;
             if (kua === 10) { kua = 1; }
             else if (kua === 5) {
                 kua = 2;
