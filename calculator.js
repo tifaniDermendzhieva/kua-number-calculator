@@ -2,6 +2,8 @@ export function calculateKuaNumber(birthdate, gender) {
 
     let [date, month, year] = birthdate.split('.');
 
+    // to do: for people born betweeb 21.01 and 21.02 check if the Chinese New Year is before or after the birthdate //
+
     let temp = year.split('').map(digit => Number(digit))
     let kua = 0;
 
