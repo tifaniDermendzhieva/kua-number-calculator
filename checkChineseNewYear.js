@@ -12,7 +12,6 @@ export function nextNewMoon(day, month, year) {
 
     const elapsedTime = selectedDate.getTime() - referenceNewMoon.getTime(); //time in ms
     const elapsedDays = elapsedTime / msPerDay;
-
     const remainingDaysToNewMoon = synodicCycle - (elapsedDays % synodicCycle); // days remaining
     const remainingMStoNewMoon = remainingDaysToNewMoon * msPerDay; // ms remaining
 
@@ -23,30 +22,27 @@ export function nextNewMoon(day, month, year) {
     const nextNewMoonMonth = newMoon.getMonth() + 1;
 
 
-
-    // console.log(newMoon, nextNewMoonDay, nextNewMoonMonth);
     return [nextNewMoonDay, nextNewMoonMonth];
 }
 
 
-// export function checkChineseNewYear(year) {
-//     const newYear2022 = [1, 2]; // 1 Feb 2022 - starting point for calculations 
-//     const daysInYear = 365;
-//     if (isLeap) {
-//         daysInYear++;
-//     }
+export function checkChineseNewYear(day, month, year) {
+    // Chinese New Year must always begin on a New Moon && it must be in the period 21.01 - 21.02 //
+    const testDate = [20, 1, Number(year)];
+    const chineseNewYear = nextNewMoon(...testDate);
 
-//     const lunarMonth = 29.5; //approx. might accumulate calculation error
-//     const lunarYear = 12 * 29.5; // typically a lunar year contains 12 months
-//     /// However, New Year must always begin on a New Moon && it must be in the period 21.01 - 21.02 //
+    const yourBirthDay = Number(day);
+    const yourBirthMonth = Number(month);
 
-//     let nextNewYearDate = [];
-//     for (let i = 2022; i <= Number(year); i++) {
+    const chineseNewYearDay = Number(chineseNewYear[0]);
+    const chineseNewYearMonth = Number(chineseNewYear[1]);
 
-
-//     }
-
-//     return [date, month]
-// }
+    if ((yourBirthMonth < chineseNewYearMonth)
+        || (yourBirthMonth == chineseNewYearMonth && yourBirthDay < chineseNewYearDay)) {
+        return 'Your birthday was before Chinese New Year';
+    } else {
+        return 'Your birthday was after Chinese New Year';
+    }
+}
 
 
