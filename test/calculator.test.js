@@ -7,7 +7,7 @@ describe('claculator functionality tests', () => {
 
         it('should return kua number 1', () => {
 
-            const input = ['11.03.1990', 'male'];
+            const input = ['11', '04', '1990', 'male'];
             const output = 1;
 
             expect(calculateKuaNumber(...input)).to.equal(output);
@@ -15,7 +15,7 @@ describe('claculator functionality tests', () => {
 
         it('should return kua number 2', () => {
 
-            const input = ['11.04.1998', 'male'];
+            const input = ['11', '04', '1998', 'male'];
             const output = 2;
 
             expect(calculateKuaNumber(...input)).to.equal(output);
@@ -23,7 +23,7 @@ describe('claculator functionality tests', () => {
 
         it('should return kua number 3', () => {
 
-            const input = ['11.04.2015', 'male'];
+            const input = ['11', '03', '2015', 'male'];
             const output = 3;
 
             expect(calculateKuaNumber(...input)).to.equal(output);
@@ -31,7 +31,7 @@ describe('claculator functionality tests', () => {
 
         it('should return kua number 4', () => {
 
-            const input = ['11.04.1960', 'male'];
+            const input = ['11', '03', '1960', 'male'];
             const output = 4;
 
             expect(calculateKuaNumber(...input)).to.equal(output);
@@ -39,7 +39,7 @@ describe('claculator functionality tests', () => {
 
         it('should return kua number 6', () => {
 
-            const input = ['11.04.1985', 'male'];
+            const input = ['11', '03', '1985', 'male'];
             const output = 6;
 
             expect(calculateKuaNumber(...input)).to.equal(output);
@@ -47,7 +47,7 @@ describe('claculator functionality tests', () => {
 
         it('should return kua number 7', () => {
 
-            const input = ['11.04.1993', 'male'];
+            const input = ['11', '03', '1993', 'male'];
             const output = 7;
 
             expect(calculateKuaNumber(...input)).to.equal(output);
@@ -55,7 +55,7 @@ describe('claculator functionality tests', () => {
 
         it('should return kua number 8', () => {
 
-            const input = ['11.04.1992', 'male'];
+            const input = ['11', '03', '1992', 'male'];
             const output = 8;
 
             expect(calculateKuaNumber(...input)).to.equal(output);
@@ -63,7 +63,7 @@ describe('claculator functionality tests', () => {
 
         it('should return kua number 9', () => {
 
-            const input = ['11.04.1982', 'male'];
+            const input = ['11', '03', '1982', 'male'];
             const output = 9;
 
             expect(calculateKuaNumber(...input)).to.equal(output);
@@ -75,7 +75,7 @@ describe('claculator functionality tests', () => {
 
         it('should return kua number 1', () => {
 
-            const input = ['11.03.1959', 'female'];
+            const input = ['11', '03', '1959', 'female'];
             const output = 1;
 
             expect(calculateKuaNumber(...input)).to.equal(output);
@@ -83,7 +83,7 @@ describe('claculator functionality tests', () => {
 
         it('should return kua number 2', () => {
 
-            const input = ['11.03.2014', 'female'];
+            const input = ['11', '03', '2014', 'female'];
             const output = 2;
 
             expect(calculateKuaNumber(...input)).to.equal(output);
@@ -91,7 +91,7 @@ describe('claculator functionality tests', () => {
 
         it('should return kua number 3', () => {
 
-            const input = ['11.03.1970', 'female'];
+            const input = ['11', '03', '1970', 'female'];
             const output = 3;
 
             expect(calculateKuaNumber(...input)).to.equal(output);
@@ -99,7 +99,7 @@ describe('claculator functionality tests', () => {
 
         it('should return kua number 4', () => {
 
-            const input = ['11.03.1953', 'female'];
+            const input = ['11', '03', '1953', 'female'];
             const output = 4;
 
             expect(calculateKuaNumber(...input)).to.equal(output);
@@ -107,7 +107,7 @@ describe('claculator functionality tests', () => {
 
         it('should return kua number 6', () => {
 
-            const input = ['11.03.1991', 'female'];
+            const input = ['11', '03', '1991', 'female'];
             const output = 6;
 
             expect(calculateKuaNumber(...input)).to.equal(output);
@@ -115,7 +115,7 @@ describe('claculator functionality tests', () => {
 
         it('should return kua number 7', () => {
 
-            const input = ['11.03.1974', 'female'];
+            const input = ['11', '03', '1974', 'female'];
             const output = 7;
 
             expect(calculateKuaNumber(...input)).to.equal(output);
@@ -123,7 +123,7 @@ describe('claculator functionality tests', () => {
 
         it('should return kua number 8', () => {
 
-            const input = ['11.03.1984', 'female'];
+            const input = ['11', '03', '1984', 'female'];
             const output = 8;
 
             expect(calculateKuaNumber(...input)).to.equal(output);
@@ -135,7 +135,7 @@ describe('claculator functionality tests', () => {
 
         it('should return kua number 8 if gender is female', () => {
 
-            const input = ['11.03.1981', 'female'];
+            const input = ['11', '03', '1981', 'female'];
             const output = 8;
 
             expect(calculateKuaNumber(...input)).to.equal(output);
@@ -143,7 +143,7 @@ describe('claculator functionality tests', () => {
 
         it('should return kua number 2 if gender is male', () => {
 
-            const input = ['11.03.1932', 'male'];
+            const input = ['11', '03', '1932', 'male'];
             const output = 2;
 
             expect(calculateKuaNumber(...input)).to.equal(output);

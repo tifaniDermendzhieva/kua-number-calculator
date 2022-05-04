@@ -1,8 +1,17 @@
-export function calculateKuaNumber(birthdate, gender) {
+export function calculateKuaNumber(day, month, year, gender) {
 
-    let [date, month, year] = birthdate.split('.');
+    // to do: for people born between 21.01 and 21.02 check if the Chinese New Year is before or after their birthdate //
+    if (month == '1' && Number(day) >= 21 || month == '2' && Number(day) <= 21) {
+        const chineseNewYear = checkChineseNewYear(year); // expected to return array ['day','month']
 
-    // to do: for people born betweeb 21.01 and 21.02 check if the Chinese New Year is before or after the birthdate //
+        const [chineseNewYearDay, chineseNewYearMonth] = chineseNewYear;
+        if (Number(day) <= Number(chineseNewYearDay) && chineseNewYearMonth == month || Number(day) >= Number(chineseNewYearDay) && chineseNewYearMonth != month) {
+            const yearAdjustment = Number(year)--;
+
+            year = yearAdjustment.toString(); // so that year can be split into array in the following code 
+        }
+
+    }
 
     let temp = year.split('').map(digit => Number(digit))
     let kua = 0;

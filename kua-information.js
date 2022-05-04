@@ -1,5 +1,5 @@
 
-class KuaNumber {
+class KuaInformation {
     constructor(wealth, health, relationships, personalGrowth, badLuck, threeKillings, fiveGhosts, totalLoss, group, element) {
         this.lucky = {
             wealth,
