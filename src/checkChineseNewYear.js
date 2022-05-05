@@ -2,7 +2,7 @@
 export function nextNewMoon(day, month, year) {
 
     const synodicCycle = 29.53058770676;
-    const referenceNewMoon = new Date(1920, 2, 20, 12, 55); // ! NB: months start from index 0
+    const referenceNewMoon = new Date(Date.UTC(1920, 2, 20, 10, 55)); // ! NB: months start from index 0
     const msPerDay = 86400000;
 
     const monthNumber = Number(month) - 1; // ! adjust index to be used in new Date
@@ -25,6 +25,8 @@ export function nextNewMoon(day, month, year) {
     return [nextNewMoonDay, nextNewMoonMonth];
 }
 
+export const beforeMssg = 'Your birthday was before Chinese New Year';
+const afterMssg = 'Your birthday was after Chinese New Year';
 
 export function checkChineseNewYear(day, month, year) {
     // Chinese New Year must always begin on a New Moon && it must be in the period 21.01 - 21.02 //
@@ -39,9 +41,9 @@ export function checkChineseNewYear(day, month, year) {
 
     if ((yourBirthMonth < chineseNewYearMonth)
         || (yourBirthMonth == chineseNewYearMonth && yourBirthDay < chineseNewYearDay)) {
-        return 'Your birthday was before Chinese New Year';
+        return beforeMssg;
     } else {
-        return 'Your birthday was after Chinese New Year';
+        return afterMssg;
     }
 }
 

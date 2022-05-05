@@ -1,19 +1,15 @@
+import { beforeMssg, checkChineseNewYear } from "./checkChineseNewYear.js";
 export function calculateKuaNumber(day, month, year, gender) {
 
-    // to do: for people born between 21.01 and 21.02 check if the Chinese New Year is before or after their birthdate //
+    // for people born between 21.01 and 21.02 check if the Chinese New Year is before or after their birthdate //
     if (month == '1' && Number(day) >= 21 || month == '2' && Number(day) <= 21) {
-        const chineseNewYear = checkChineseNewYear(year); // expected to return array ['day','month']
-
-        const [chineseNewYearDay, chineseNewYearMonth] = chineseNewYear;
-        if (Number(day) <= Number(chineseNewYearDay) && chineseNewYearMonth == month || Number(day) >= Number(chineseNewYearDay) && chineseNewYearMonth != month) {
-            const yearAdjustment = Number(year)--;
-
-            year = yearAdjustment.toString(); // so that year can be split into array in the following code 
+        const chineseNewYear = checkChineseNewYear(day, month, year); // expected to return string
+        if (chineseNewYear === beforeMssg) {
+            year = Number(year) - 1;
         }
-
     }
 
-    let temp = year.split('').map(digit => Number(digit))
+    let temp = year.toString().split('').map(digit => Number(digit))
     let kua = 0;
 
     while (temp.length != 1) {
@@ -51,5 +47,3 @@ export function calculateKuaNumber(day, month, year, gender) {
 
     return kua;
 }
-
-//console.log(calculateKuaNumber('01.04.1980', 'male'));
