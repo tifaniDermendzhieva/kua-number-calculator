@@ -4,17 +4,17 @@ import { kuaInfo } from './kua-information.js'
 
 const sectionDisplay = document.getElementById('display');
 
-export function renderInformation(date) {
+export function renderInformation(date, gender) {
 
-    const [day, month, year] = date.split('-');
-    const kuaNumber = calculateKuaNumber(day, month, year);
+    const [year, month, day] = date.split('-');
+    const kuaNumber = calculateKuaNumber(day, month, year, gender);
 
     const card = kuaNumberCard(kuaNumber);
-    sectionDisplay.appendChild(card);
+    sectionDisplay.replaceChildren(card);
 
 }
 
-export function renderAdditionalInformation(date) {
+export function renderAdditionalInformation(date, gender) {
     console.log('additional information', date);
 }
 
