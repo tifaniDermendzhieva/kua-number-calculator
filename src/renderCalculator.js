@@ -20,7 +20,7 @@ export function renderCalculator() {
 
     const keepOnScreenLabel = document.createElement('label');
     keepOnScreenLabel.setAttribute('for', 'keepOnScreen');
-    keepOnScreenLabel.textContent = 'Compare with next kua number';
+    keepOnScreenLabel.textContent = 'Compare with previous kua numbers';
 
     const keepOnScreenElement = document.createElement('input');
     keepOnScreenElement.setAttribute('type', 'checkbox');
@@ -30,6 +30,10 @@ export function renderCalculator() {
     divElement.appendChild(keepOnScreenElement);
 
     const genderElement = document.createElement('div');
+    const genderLabel = document.createElement('label');
+    genderLabel.setAttribute('for', 'gender');
+    genderLabel.textContent = 'Gender:'
+
     const maleLabel = document.createElement('label');
     maleLabel.setAttribute('for', 'male');
     maleLabel.textContent = 'male';
@@ -38,6 +42,7 @@ export function renderCalculator() {
     maleInput.setAttribute('type', 'radio');
     maleInput.setAttribute('value', 'male');
     maleInput.setAttribute('name', 'gender');
+
 
     const femaleLabel = document.createElement('label');
     femaleLabel.setAttribute('for', 'female');
@@ -48,7 +53,7 @@ export function renderCalculator() {
     femaleInput.setAttribute('value', 'female');
     femaleInput.setAttribute('name', 'gender');
 
-
+    genderElement.appendChild(genderLabel);
     genderElement.appendChild(maleLabel);
     genderElement.appendChild(maleInput);
     genderElement.appendChild(femaleLabel);
@@ -69,7 +74,6 @@ export function renderCalculator() {
     sectionCalculator.appendChild(h3Element);
     sectionCalculator.appendChild(form);
 }
-
 
 function extractData(form) {
     const formData = new FormData(form);
@@ -93,4 +97,6 @@ function submitForm(e) {
     } else {
         renderInformation(data.birthday, data.gender);
     }
+
+    form.reset();
 }

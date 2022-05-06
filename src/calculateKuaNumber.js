@@ -1,6 +1,11 @@
 import { beforeMssg, checkChineseNewYear } from "./checkChineseNewYear.js";
 export function calculateKuaNumber(day, month, year, gender) {
 
+    if (!gender || !day || !month || !year) {
+        alert('All fields required');
+        return;
+    }
+
     // for people born between 21.01 and 21.02 check if the Chinese New Year is before or after their birthdate //
     if (month == '1' && Number(day) >= 21 || month == '2' && Number(day) <= 21) {
         const chineseNewYear = checkChineseNewYear(day, month, year); // expected to return string

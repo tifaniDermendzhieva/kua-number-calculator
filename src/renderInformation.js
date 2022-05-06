@@ -10,19 +10,24 @@ export function renderInformation(date, gender) {
     const kuaNumber = calculateKuaNumber(day, month, year, gender);
 
     const card = kuaNumberCard(kuaNumber);
+
     sectionDisplay.replaceChildren(card);
 
 }
 
 export function renderAdditionalInformation(date, gender) {
-    console.log('additional information', date);
+
+    const [year, month, day] = date.split('-');
+    const kuaNumber = calculateKuaNumber(day, month, year, gender);
+
+    const card = kuaNumberCard(kuaNumber);
+    sectionDisplay.appendChild(card);
 }
 
 function kuaNumberCard(kuaNumber) {
 
     const cardElement = document.createElement('article');
     cardElement.classList.add('kua-card');
-
 
     const headingElement = document.createElement('h3');
     headingElement.classList.add('kua-number');
@@ -34,7 +39,7 @@ function kuaNumberCard(kuaNumber) {
     const deleteAnchor = document.createElement('a');
     deleteAnchor.textContent = 'X';
     deleteAnchor.addEventListener('click', (e) => {
-        console.log('delete');
+        sectionDisplay.removeChild(cardElement);
     })
 
     spanElement.appendChild(deleteAnchor);

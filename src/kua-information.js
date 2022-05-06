@@ -2,27 +2,27 @@
 class KuaInformation {
     constructor(wealth, health, relationships, personalGrowth, badLuck, threeKillings, fiveGhosts, totalLoss, group, element) {
         this.lucky = {
-            wealth,
-            health,
-            relationships,
-            personalGrowth,
+            'Wealth': wealth,
+            'Health': health,
+            'Relationships': relationships,
+            'Personal Growth': personalGrowth,
         },
             this.unlucky = {
-                badLuck,
-                threeKillings,
-                fiveGhosts,
-                totalLoss,
+                'Bad Luck': badLuck,
+                'Three Killings': threeKillings,
+                'Five Ghosts': fiveGhosts,
+                'Total Loss': totalLoss,
             },
             this.group = group,
             this.element = element
     }
-
     // to do: make methods static to save memmory //
     displayLuckyDirections() {
         const containingElement = document.createElement('div');
         containingElement.classList.add('lucky-directions');
 
         const luckyHeading = document.createElement('h5');
+        luckyHeading.classList.add('lucky-heading');
         luckyHeading.textContent = 'LUCKY';
 
         containingElement.appendChild(luckyHeading);
@@ -50,6 +50,7 @@ class KuaInformation {
         containingElement.classList.add('unlucky-directions');
 
         const unluckyHeading = document.createElement('h5');
+        unluckyHeading.classList.add('unlucky-heading');
         unluckyHeading.textContent = 'UNLUCKY';
 
         containingElement.appendChild(unluckyHeading);
@@ -78,7 +79,7 @@ class KuaInformation {
 
         const groupHeadingElement = document.createElement('h5');
         groupHeadingElement.classList.add('group-title');
-        groupHeadingElement.textContent = 'Group:';
+        groupHeadingElement.textContent = 'Group';
 
         const groupParElement = document.createElement('p');
         groupParElement.classList.add('group-content');
@@ -97,7 +98,7 @@ class KuaInformation {
 
         const kuaElementHeadingElement = document.createElement('h5');
         kuaElementHeadingElement.classList.add('element-title');
-        kuaElementHeadingElement.textContent = 'Element:';
+        kuaElementHeadingElement.textContent = 'Element';
 
         const kuaElementContentElement = document.createElement('p');
         kuaElementContentElement.classList.add('element-content');
