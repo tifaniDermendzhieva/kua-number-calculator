@@ -122,3 +122,4 @@ export const kuaInfo = {
     '8': new KuaInformation('SW', 'NW', 'W', 'NE', 'S', 'N', 'E', 'SE', 'west', 'earth'),
     '9': new KuaInformation('E', 'SE', 'N', 'S', 'NE', 'W', 'SW', 'NW', 'east', 'fire'),
 }
+

@@ -1,5 +1,6 @@
 import { expect } from 'chai';
-import { checkChineseNewYear, nextNewMoon } from '../checkChineseNewYear.js';
+import { checkChineseNewYear } from '../src/check-chinese-new-year.js';
+import { nextNewMoon } from '../src/next-new-moon.js';
 
 describe('calculating the next new moon', () => {
 

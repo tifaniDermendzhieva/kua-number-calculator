@@ -1,9 +1,9 @@
 
 
-import { renderAdditionalInformation, renderInformation } from './renderInformation.js';
+import { renderAdditionalInformation, renderInformation } from './render-information.js';
 
 const sectionCalculator = document.getElementById('calculator');
-export function renderCalculator() {
+export default function renderCalculator() {
 
     const h3Element = document.createElement('h3');
     h3Element.textContent = 'Calculate your Kua number here';
@@ -74,6 +74,7 @@ export function renderCalculator() {
     sectionCalculator.appendChild(h3Element);
     sectionCalculator.appendChild(form);
 }
+
 
 function extractData(form) {
     const formData = new FormData(form);

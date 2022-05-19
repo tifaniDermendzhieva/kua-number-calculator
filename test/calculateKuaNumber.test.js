@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { calculateKuaNumber, } from '../calculateKuaNumber.js';
+import { calculateKuaNumber } from '../src/calculate-kua-number.js';
 
 
 describe('calculator functionality tests', () => {

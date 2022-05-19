@@ -1,6 +1,7 @@
 
-import { calculateKuaNumber } from './calculateKuaNumber.js';
-import { kuaInfo } from './kua-information.js'
+
+import { calculateKuaNumber } from './calculate-kua-number.js';
+import { kuaInfo } from './kua-information.js';
 
 const sectionDisplay = document.getElementById('display');
 
