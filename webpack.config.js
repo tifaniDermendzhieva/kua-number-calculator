@@ -1,7 +1,9 @@
 
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 import { fileURLToPath } from "url";
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 
@@ -26,7 +28,15 @@ const configuration = {
             { test: /\.(png|svg|jpg|jpeg|gif)$/i, type: 'asset/resource' },
         ],
     },
-    plugins: [new HtmlWebpackPlugin({ template: './public/index.html' })]
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: './public/index.html',
+            scriptLoading: 'defer',
+        }),
+        new FaviconsWebpackPlugin({
+            logo: './public/favicon.ico',
+        })
+    ]
 
 };
 
