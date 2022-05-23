@@ -1,6 +1,6 @@
 import { expect } from 'chai';
-import { checkChineseNewYear } from '../src/check-chinese-new-year.js';
-import { nextNewMoon } from '../src/next-new-moon.js';
+import { isBeforeChineseNewYear } from '../src/calculations/is-before-chinese-new-year.js';
+import { nextNewMoon } from '../src/calculations/next-new-moon.js';
 
 describe('calculating the next new moon', () => {
 
@@ -32,6 +32,7 @@ describe('calculating the next new moon', () => {
             expect(nextNewMoon(...input)).to.eql(output);
 
         });
+
         it('should return 16 Feb 1999', () => {
 
             let input = [25, 1, 1999];
@@ -54,20 +55,20 @@ describe('calculating the next new moon', () => {
 
 
     describe('calculating next new moon before 1970', () => {
-        // it('should return 15 Feb 1961', () => {
+        it('should return 15 Feb 1961', () => {
 
-        //     let input = [27, 1, 1961];
-        //     let output = [15, 2];
+            let input = [27, 1, 1961];
+            let output = [15, 2];
 
-        //     expect(nextNewMoon(...input)).to.eql(output);
+            expect(nextNewMoon(...input)).to.eql(output);
 
-        // });
+        });
 
     });
 
 });
 
-describe('calculating date of Chinese New Year and determining whether the input birthdate was before or after CNY', () => {
+describe('check if the input birthdate was before or after CNY', () => {
 
     describe('should return false', () => {
         const output = false;
@@ -75,13 +76,13 @@ describe('calculating date of Chinese New Year and determining whether the input
 
             it('when input birthday is 12 Feb 1953', () => {
                 const input = [12, 2, 1953];
-                expect(checkChineseNewYear(...input)).to.equal(output);
+                expect(isBeforeChineseNewYear(...input)).to.equal(output);
 
             });
 
             it('when input birthday is 27 Jan 1961', () => {
                 const input = [27, 1, 1961];
-                expect(checkChineseNewYear(...input)).to.equal(output);
+                expect(isBeforeChineseNewYear(...input)).to.equal(output);
 
             });
         });
@@ -90,25 +91,25 @@ describe('calculating date of Chinese New Year and determining whether the input
 
             it('when input birthday is 5 Feb 1970', () => {
                 const input = [5, 2, 1970];
-                expect(checkChineseNewYear(...input)).to.equal(output);
+                expect(isBeforeChineseNewYear(...input)).to.equal(output);
 
             });
 
             it('when input birthday is 27 Jan 1979', () => {
                 const input = [27, 1, 1979];
-                expect(checkChineseNewYear(...input)).to.equal(output);
+                expect(isBeforeChineseNewYear(...input)).to.equal(output);
 
             });
 
             it('when input birthday is 23 Jan 1982', () => {
                 const input = [23, 1, 1982];
-                expect(checkChineseNewYear(...input)).to.equal(output);
+                expect(isBeforeChineseNewYear(...input)).to.equal(output);
 
             });
 
             it('when input birthday is 22 Jan 2022', () => {
                 const input = [22, 1, 2022];
-                expect(checkChineseNewYear(...input)).to.equal(output);
+                expect(isBeforeChineseNewYear(...input)).to.equal(output);
 
             });
         });
@@ -122,12 +123,12 @@ describe('calculating date of Chinese New Year and determining whether the input
         describe('input years before 1970', () => {
             it('when input birthday is 13 Feb 1953', () => {
                 const input = [13, 2, 1953];
-                expect(checkChineseNewYear(...input)).to.equal(output);
+                expect(isBeforeChineseNewYear(...input)).to.equal(output);
             });
 
             it('when input birthday is 16 Feb 1961', () => {
                 const input = [16, 1, 1961];
-                expect(checkChineseNewYear(...input)).to.equal(output);
+                expect(isBeforeChineseNewYear(...input)).to.equal(output);
 
             });
 
@@ -136,25 +137,25 @@ describe('calculating date of Chinese New Year and determining whether the input
         describe('input years after 1970', () => {
             it('when input birthday is 7 Feb 1970', () => {
                 const input = [7, 2, 1970];
-                expect(checkChineseNewYear(...input)).to.equal(output);
+                expect(isBeforeChineseNewYear(...input)).to.equal(output);
 
             });
 
             it('when input birthday is 29 Jan 1979', () => {
                 const input = [29, 1, 1979];
-                expect(checkChineseNewYear(...input)).to.equal(output);
+                expect(isBeforeChineseNewYear(...input)).to.equal(output);
 
             });
 
             it('when input birthday is 25 Jan 1982', () => {
                 const input = [25, 1, 1982];
-                expect(checkChineseNewYear(...input)).to.equal(output);
+                expect(isBeforeChineseNewYear(...input)).to.equal(output);
 
             });
 
             it('when input birthday is 8 Feb 2022', () => {
                 const input = [8, 2, 2022];
-                expect(checkChineseNewYear(...input)).to.equal(output);
+                expect(isBeforeChineseNewYear(...input)).to.equal(output);
             });
         });
 

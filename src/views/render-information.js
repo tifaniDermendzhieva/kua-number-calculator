@@ -1,6 +1,6 @@
 
 
-import { calculateKuaNumber } from './calculate-kua-number.js';
+import { calculateKuaNumber } from '../calculations/calculate-kua-number.js';
 import { KuaInformation, kuaInfo } from './kua-information.js';
 
 const sectionDisplay = document.getElementById('display');
@@ -10,14 +10,14 @@ export function renderInformation(date, gender, keepOnScreen) {
     const [year, month, day] = date.split('-');
     const kuaNumber = calculateKuaNumber(day, month, year, gender); //returns a number
 
-    const card = kuaNumberCard(kuaNumber);
+    const card = createKuaNumberCard(kuaNumber);
 
     keepOnScreen !== 'on' ? sectionDisplay.replaceChildren(card) : sectionDisplay.appendChild(card);
 
 }
 
 
-function kuaNumberCard(kuaNumber) {
+function createKuaNumberCard(kuaNumber) {
 
     const cardElement = document.createElement('article');
     cardElement.classList.add('kua-card');

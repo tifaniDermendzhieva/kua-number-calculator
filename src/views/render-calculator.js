@@ -25,6 +25,7 @@ export default function renderCalculator() {
 
     const keepOnScreenElement = document.createElement('input');
     keepOnScreenElement.setAttribute('type', 'checkbox');
+    keepOnScreenElement.setAttribute('checked', true);
     keepOnScreenElement.setAttribute('name', 'keepOnScreen');
 
     divElement.appendChild(keepOnScreenLabel);

@@ -1,20 +1,15 @@
 
-import {
-    // beforeMssg,
-    checkChineseNewYear
-} from "./check-chinese-new-year.js";
+import { isBeforeChineseNewYear } from "./is-before-chinese-new-year.js";
+import { allInputFieldsRequired } from "../error-handling/alert-errors.js"
 export function calculateKuaNumber(day, month, year, gender) {
 
-    if (!gender || !day || !month || !year) {
-        alert('All fields required');
-        return;
-    }
+    allInputFieldsRequired(day, month, year, gender);
 
     // for people born between 21.01 and 21.02 check if the Chinese New Year is before or after their birthdate //
     if (month === 1 && Number(day) >= 21 || month === 2 && Number(day) <= 21) {
-        const chineseNewYear = checkChineseNewYear(day, month, year); // expected to return true/false // string
-        // if (chineseNewYear === beforeMssg) {
-        if (!chineseNewYear) {
+        const chineseNewYear = isBeforeChineseNewYear(day, month, year);
+
+        if (chineseNewYear) {
             year = Number(year) - 1;
         }
     }
