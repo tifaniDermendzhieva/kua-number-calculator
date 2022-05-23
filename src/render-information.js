@@ -1,29 +1,21 @@
 
 
 import { calculateKuaNumber } from './calculate-kua-number.js';
-import { kuaInfo } from './kua-information.js';
+import { KuaInformation, kuaInfo } from './kua-information.js';
 
 const sectionDisplay = document.getElementById('display');
 
-export function renderInformation(date, gender) {
+export function renderInformation(date, gender, keepOnScreen) {
 
     const [year, month, day] = date.split('-');
-    const kuaNumber = calculateKuaNumber(day, month, year, gender);
+    const kuaNumber = calculateKuaNumber(day, month, year, gender); //returns a number
 
     const card = kuaNumberCard(kuaNumber);
 
-    sectionDisplay.replaceChildren(card);
+    keepOnScreen !== 'on' ? sectionDisplay.replaceChildren(card) : sectionDisplay.appendChild(card);
 
 }
 
-export function renderAdditionalInformation(date, gender) {
-
-    const [year, month, day] = date.split('-');
-    const kuaNumber = calculateKuaNumber(day, month, year, gender);
-
-    const card = kuaNumberCard(kuaNumber);
-    sectionDisplay.appendChild(card);
-}
 
 function kuaNumberCard(kuaNumber) {
 
@@ -50,10 +42,10 @@ function kuaNumberCard(kuaNumber) {
     const directionsContainerElement = document.createElement('div');
     directionsContainerElement.classList.add('directions');
 
-    const luckyDirectionsDiv = kuaInfo[kuaNumber].displayLuckyDirections();
-    const unluckyDirectionsDiv = kuaInfo[kuaNumber].displayUnluckyDirections();
-    const groupDiv = kuaInfo[kuaNumber].displayGroup();
-    const elementDiv = kuaInfo[kuaNumber].displayElement();
+    const luckyDirectionsDiv = KuaInformation.displayLuckyDirections(kuaInfo[kuaNumber]);
+    const unluckyDirectionsDiv = KuaInformation.displayUnluckyDirections(kuaInfo[kuaNumber]);
+    const groupDiv = KuaInformation.displayGroup(kuaInfo[kuaNumber]);
+    const elementDiv = KuaInformation.displayElement(kuaInfo[kuaNumber]);
 
     cardElement.appendChild(headingElement);
 
@@ -63,7 +55,6 @@ function kuaNumberCard(kuaNumber) {
     cardElement.appendChild(directionsContainerElement);
     cardElement.appendChild(groupDiv);
     cardElement.appendChild(elementDiv);
-
 
     return cardElement;
 }

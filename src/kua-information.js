@@ -1,5 +1,5 @@
 
-class KuaInformation {
+export class KuaInformation {
     constructor(wealth, health, relationships, personalGrowth, badLuck, threeKillings, fiveGhosts, totalLoss, group, element) {
         this.lucky = {
             'Wealth': wealth,
@@ -16,8 +16,8 @@ class KuaInformation {
             this.group = group,
             this.element = element
     }
-    // to do: make methods static to save memmory //
-    displayLuckyDirections() {
+
+    static displayLuckyDirections(kuaNumberInstance) {
         const containingElement = document.createElement('div');
         containingElement.classList.add('lucky-directions');
 
@@ -27,7 +27,7 @@ class KuaInformation {
 
         containingElement.appendChild(luckyHeading);
 
-        const luckyDirectionsEntires = Object.entries(this.lucky);
+        const luckyDirectionsEntires = Object.entries(kuaNumberInstance.lucky);
         for (let [effect, direction] of luckyDirectionsEntires) {
 
             const headingEffect = document.createElement('h5');
@@ -45,7 +45,7 @@ class KuaInformation {
         return containingElement;
     }
 
-    displayUnluckyDirections() {
+    static displayUnluckyDirections(kuaNumberInstance) {
         const containingElement = document.createElement('div');
         containingElement.classList.add('unlucky-directions');
 
@@ -55,7 +55,7 @@ class KuaInformation {
 
         containingElement.appendChild(unluckyHeading);
 
-        const unluckyDirectionsEntires = Object.entries(this.unlucky);
+        const unluckyDirectionsEntires = Object.entries(kuaNumberInstance.unlucky);
         for (let [effect, direction] of unluckyDirectionsEntires) {
 
             const headingEffect = document.createElement('h5');
@@ -73,7 +73,7 @@ class KuaInformation {
         return containingElement;
     }
 
-    displayGroup() {
+    static displayGroup(kuaNumberInstance) {
         const containingElement = document.createElement('div');
         containingElement.classList.add('group');
 
@@ -83,7 +83,7 @@ class KuaInformation {
 
         const groupParElement = document.createElement('p');
         groupParElement.classList.add('group-content');
-        groupParElement.textContent = this.group;
+        groupParElement.textContent = kuaNumberInstance.group;
 
         containingElement.appendChild(groupHeadingElement);
         containingElement.appendChild(groupParElement);
@@ -91,7 +91,7 @@ class KuaInformation {
         return containingElement;
     }
 
-    displayElement() {
+    static displayElement(kuaNumberInstance) {
 
         const containingElement = document.createElement('div');
         containingElement.classList.add('element');
@@ -102,7 +102,7 @@ class KuaInformation {
 
         const kuaElementContentElement = document.createElement('p');
         kuaElementContentElement.classList.add('element-content');
-        kuaElementContentElement.textContent = this.element;
+        kuaElementContentElement.textContent = kuaNumberInstance.element;
 
         containingElement.appendChild(kuaElementHeadingElement);
         containingElement.appendChild(kuaElementContentElement);

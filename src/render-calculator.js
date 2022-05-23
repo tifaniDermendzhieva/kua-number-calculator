@@ -1,8 +1,9 @@
 
 
-import { renderAdditionalInformation, renderInformation } from './render-information.js';
+import { renderInformation } from './render-information.js';
 
 const sectionCalculator = document.getElementById('calculator');
+
 export default function renderCalculator() {
 
     const h3Element = document.createElement('h3');
@@ -75,7 +76,6 @@ export default function renderCalculator() {
     sectionCalculator.appendChild(form);
 }
 
-
 function extractData(form) {
     const formData = new FormData(form);
     let data = {};
@@ -93,11 +93,6 @@ function submitForm(e) {
     const form = document.querySelector('form');
     const data = extractData(form);
 
-    if (data.keepOnScreen) {
-        renderAdditionalInformation(data.birthday, data.gender);
-    } else {
-        renderInformation(data.birthday, data.gender);
-    }
-
+    renderInformation(data.birthday, data.gender, data.keepOnScreen);
     form.reset();
 }
