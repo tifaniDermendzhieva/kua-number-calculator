@@ -1,9 +1,9 @@
 
 import { isBeforeChineseNewYear } from "./is-before-chinese-new-year.js";
-import { allInputFieldsRequired } from "../error-handling/alert-errors.js"
+import { alertAllFieldsRequired } from "../error-handling/alert-all-fields-required.js"
 export function calculateKuaNumber(day, month, year, gender) {
 
-    allInputFieldsRequired(day, month, year, gender);
+    alertAllFieldsRequired(day, month, year, gender);
 
     // for people born between 21.01 and 21.02 check if the Chinese New Year is before or after their birthdate //
     if (month === 1 && Number(day) >= 21 || month === 2 && Number(day) <= 21) {
